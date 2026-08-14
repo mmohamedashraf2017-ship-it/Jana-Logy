@@ -1,1 +1,533 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>From Logy To Jana ❤️</title>
 
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: Tahoma, Arial, sans-serif;
+    background: linear-gradient(160deg, #350016, #65002d, #25000f);
+    color: white;
+    overflow-x: hidden;
+}
+
+/* القلوب المتحركة */
+.heart {
+    position: fixed;
+    bottom: -60px;
+    font-size: 30px;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 0;
+    animation: floatHeart linear infinite;
+}
+
+@keyframes floatHeart {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+
+    15% {
+        opacity: 0.35;
+    }
+
+    100% {
+        transform: translateY(-110vh) rotate(25deg);
+        opacity: 0;
+    }
+}
+
+/* شاشة الباسورد */
+#passwordScreen {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+    position: relative;
+    z-index: 10;
+}
+
+.login-box {
+    width: 100%;
+    max-width: 400px;
+    padding: 35px 25px;
+    border-radius: 30px;
+    text-align: center;
+    background: rgba(90, 20, 50, 0.95);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.45);
+}
+
+.login-box h1 {
+    font-size: 30px;
+    line-height: 1.6;
+    margin: 0 0 10px;
+}
+
+.login-box p {
+    font-size: 20px;
+    color: #ffb3cc;
+}
+
+input {
+    width: 100%;
+    padding: 16px;
+    border: none;
+    border-radius: 15px;
+    text-align: center;
+    font-size: 22px;
+    outline: none;
+    margin: 15px 0;
+}
+
+button {
+    border: none;
+    border-radius: 30px;
+    padding: 15px 30px;
+    background: #ff3d7f;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    box-shadow: 0 8px 20px rgba(255,61,127,0.3);
+}
+
+button:active {
+    transform: scale(0.96);
+}
+
+#error {
+    color: #ff9bb9;
+    margin-top: 15px;
+    display: none;
+}
+
+/* الصفحة الرئيسية */
+#mainPage {
+    display: none;
+    position: relative;
+    z-index: 2;
+    padding: 35px 20px 60px;
+}
+
+.container {
+    max-width: 650px;
+    margin: auto;
+    text-align: center;
+}
+
+.title {
+    font-size: 40px;
+    margin: 10px 0;
+}
+
+.subtitle {
+    font-size: 25px;
+    color: #ffb3cc;
+    margin-bottom: 30px;
+}
+
+/* صندوق الصور */
+.slider-box {
+    background: rgba(100, 25, 55, 0.78);
+    padding: 18px;
+    border-radius: 30px;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.3);
+}
+
+.slider-box h2 {
+    font-size: 30px;
+    margin: 10px 0 20px;
+}
+
+/* السلايدر */
+.slider {
+    position: relative;
+    width: 100%;
+    height: 520px;
+    border-radius: 25px;
+    overflow: hidden;
+    background: #25000f;
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+    opacity: 0;
+
+    transform: scale(1.04);
+
+    transition:
+        opacity 1.8s ease,
+        transform 5s ease;
+}
+
+.slide.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* النقاط */
+.dots {
+    margin-top: 15px;
+}
+
+.dot {
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    background: #777;
+    border-radius: 50%;
+    margin: 5px;
+    transition: 0.5s;
+}
+
+.dot.active {
+    background: #ff4b87;
+    transform: scale(1.3);
+}
+
+/* الكروت */
+.card {
+    margin-top: 30px;
+    padding: 30px 22px;
+    background: rgba(100, 25, 55, 0.72);
+    border-radius: 30px;
+    box-shadow: 0 15px 45px rgba(0,0,0,0.25);
+}
+
+.card h2 {
+    color: #ff9fc0;
+    font-size: 30px;
+}
+
+.card p {
+    font-size: 22px;
+    line-height: 2;
+}
+
+audio {
+    width: 100%;
+    margin-top: 15px;
+}
+
+.love {
+    margin-top: 45px;
+    font-size: 28px;
+    color: #ff9fc0;
+    line-height: 1.7;
+}
+
+/* موبايل */
+@media (max-width: 600px) {
+
+    .title {
+        font-size: 31px;
+    }
+
+    .subtitle {
+        font-size: 21px;
+    }
+
+    .slider {
+        height: 500px;
+    }
+
+    .card p {
+        font-size: 19px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- القلوب -->
+<div class="heart" style="left:8%; animation-duration:10s;">❤️</div>
+<div class="heart" style="left:22%; animation-duration:13s; animation-delay:2s;">💗</div>
+<div class="heart" style="left:40%; animation-duration:11s; animation-delay:4s;">❤️</div>
+<div class="heart" style="left:60%; animation-duration:14s; animation-delay:1s;">💕</div>
+<div class="heart" style="left:78%; animation-duration:12s; animation-delay:3s;">❤️</div>
+<div class="heart" style="left:90%; animation-duration:15s; animation-delay:5s;">💗</div>
+
+
+<!-- شاشة الباسورد -->
+<section id="passwordScreen">
+
+    <div class="login-box">
+
+        <h1>❤️ From Logy To Jana ❤️</h1>
+
+        <p>في حاجة صغيرة مخصوص ليكي 💗</p>
+
+        <input
+            id="password"
+            type="password"
+            inputmode="numeric"
+            placeholder="اكتبي الباسورد"
+            autocomplete="off"
+        >
+
+        <button onclick="openLove()">
+            افتحي الرسالة ❤️
+        </button>
+
+        <div id="error">
+            الباسورد غلط يا جنى ❤️
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- الصفحة الرئيسية -->
+<section id="mainPage">
+
+    <div class="container">
+
+        <h1 class="title">
+            ❤️ From Logy To Jana ❤️
+        </h1>
+
+        <div class="subtitle">
+            أجمل حاجة في حياتي 💗
+        </div>
+
+
+        <!-- الصور الثلاثة -->
+        <div class="slider-box">
+
+            <h2>❤️ حب عمري ❤️</h2>
+
+            <div class="slider">
+
+                <img
+                    src="J1.jpg"
+                    class="slide active"
+                    alt="Jana"
+                >
+
+                <img
+                    src="J2.jpg"
+                    class="slide"
+                    alt="Jana"
+                >
+
+                <img
+                    src="J3.jpg"
+                    class="slide"
+                    alt="Jana"
+                >
+
+            </div>
+
+            <div class="dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+
+        </div>
+
+
+        <!-- الرسالة -->
+        <div class="card">
+
+            <h2>❤️ إلى جنى ❤️</h2>
+
+            <p>
+                بحبك أوي يا جنى ❤️
+                <br>
+                إنتي من أجمل الحاجات اللي حصلت في حياتي.
+                <br>
+                وجودك في حياتي له معنى كبير عندي.
+                <br>
+                وربنا يخليكي ليا دايمًا ويحفظك.
+                <br>
+                ويحققلك كل اللي نفسك فيه.
+                <br>
+                ❤️ بحبك يا جنى ❤️
+            </p>
+
+        </div>
+
+
+        <!-- الأغنية -->
+        <div class="card">
+
+            <h2>🎵 أغنية مخصوص لجنى ❤️</h2>
+
+            <audio
+                id="music"
+                src="Jsong.mp3"
+                controls
+                preload="auto">
+            </audio>
+
+        </div>
+
+
+        <div class="love">
+            ❤️ بحبك ❤️
+            <br>
+            Logy
+        </div>
+
+    </div>
+
+</section>
+
+
+<script>
+
+/* =========================
+   الباسورد
+========================= */
+
+const correctPassword = "18251";
+
+
+/* =========================
+   فتح الصفحة
+========================= */
+
+function openLove() {
+
+    const password =
+        document.getElementById("password").value.trim();
+
+    const error =
+        document.getElementById("error");
+
+    const passwordScreen =
+        document.getElementById("passwordScreen");
+
+    const mainPage =
+        document.getElementById("mainPage");
+
+    const music =
+        document.getElementById("music");
+
+
+    /* الباسورد صحيح */
+    if (password === correctPassword) {
+
+        error.style.display = "none";
+
+        passwordScreen.style.display = "none";
+
+        mainPage.style.display = "block";
+
+
+        /* تشغيل الأغنية */
+        music.volume = 0.8;
+
+        music.play().catch(function(e) {
+            console.log("Audio error:", e);
+        });
+
+
+        /* تشغيل الصور */
+        startSlider();
+
+    }
+
+    /* الباسورد غلط */
+    else {
+
+        error.style.display = "block";
+
+    }
+
+}
+
+
+/* =========================
+   زر Enter
+========================= */
+
+document
+.getElementById("password")
+.addEventListener("keydown", function(event) {
+
+    if (event.key === "Enter") {
+        openLove();
+    }
+
+});
+
+
+/* =========================
+   السلايدر
+========================= */
+
+let currentSlide = 0;
+let sliderStarted = false;
+
+
+function startSlider() {
+
+    if (sliderStarted) {
+        return;
+    }
+
+    sliderStarted = true;
+
+
+    const slides =
+        document.querySelectorAll(".slide");
+
+    const dots =
+        document.querySelectorAll(".dot");
+
+
+    setInterval(function() {
+
+
+        /* إخفاء الصورة الحالية */
+        slides[currentSlide]
+            .classList.remove("active");
+
+        dots[currentSlide]
+            .classList.remove("active");
+
+
+        /* الصورة التالية */
+        currentSlide++;
+
+
+        /* الرجوع لأول صورة */
+        if (currentSlide >= slides.length) {
+            currentSlide = 0;
+        }
+
+
+        /* إظهار الصورة الجديدة */
+        slides[currentSlide]
+            .classList.add("active");
+
+        dots[currentSlide]
+            .classList.add("active");
+
+
+    }, 5000);
+
+}
+
+</script>
+
+</body>
+</html>
